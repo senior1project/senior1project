@@ -1,15 +1,17 @@
 const express = require("express");
 const itemRoutes = require('./routes/item.routes')
-
-
-// const db = require('./database-mysql');
+const bodyParser = require('body-parser');
+const { Sequelize, DataTypes } = require('sequelize');
+const jwt = require('jsonwebtoken');
+const secretKey = process.env.JWT_SECRET || '123456789';
 
 
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT =3000
 
 
 app.use(express.json());
+app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 
