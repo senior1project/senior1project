@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar{
+   background: #282828;
+   width: 100vw;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 50px;
+}
+
+.navbar ul {
+    list-style: none;
+ 
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 15px;
+    color:#e8e8e8;
+    font-size: 18px;
+}
+
+.active{
+color:#f73a34 !important;
+font-weight: 900 ;
+}
+
