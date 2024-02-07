@@ -3,7 +3,8 @@ const itemRoutes = require('./routes/item.routes')
 const bodyParser = require('body-parser');
 const { Sequelize, DataTypes } = require('sequelize');
 const jwt = require('jsonwebtoken');
-const secretKey = process.env.JWT_SECRET || '123456789';
+//
+const secretKey = process.env.JWT_SECRET || 123456789 ;
 
 
 const app = express();

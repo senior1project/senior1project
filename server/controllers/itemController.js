@@ -1,59 +1,41 @@
-const Cars = sequelize.define('Cars', {
-    brand: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    model: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    year: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-   imageUrl: {
-    type: DataTypes.STRING,
-    allowNull: false,
-   },
-  });
+const Cars=require("../database-mysql/index.js")
 
- 
 
-////////////////////////
+////////////jwt////////////
 
   const authentication = (req, res, next)=>{
     const token = req.header('Authorization')
     if(!token){
-       return res.sendStatus(401)}
+       return res.status(401)}
     jwt.verify(token,secretKey,(err, user)=>{
       if(err){
-        return res.sendStatus(403)}
+        return res.status(403)}
       req.user = user
       next()
     })
   }
 
 
-/////////////////////
-  app.get('/cars',authentication,async(req,res)=>{
+///////////CRUD//////////
+const get=async(req,res)=>{
     try{
      const allCars = await Cars.findAll()
       res.json(allCars)}
     catch(error){
       res.status(500).json(error)
     }
-  })
+  }
 
-  app.post('/cars',authentication,async(req, res)=>{
+const post=async(req, res)=>{
     try{
       const newCar = await Cars.create(req.body)
       res.json(newCar)}
     catch (error){
       res.status(500).json(error)
     }
-  })
+  }
 
-  app.delete('/cars/:id', authentication, async(req,res)=>{
+const deletee=async(req,res)=>{
     const {id} = req.params
     try{
       await Cars.destroy({where:{id}})
@@ -61,9 +43,9 @@ const Cars = sequelize.define('Cars', {
     catch(error){
       res.status(500).json(error)
     }
-  })
+  }
 
-  app.put('/cars/:id', authentication,async(req,res)=>{
+const put=async(req,res)=>{
     const {id} = req.params
     try{
       await Cars.update(req.body,{where:{id}})
@@ -71,4 +53,6 @@ const Cars = sequelize.define('Cars', {
     catch(error){
       res.status(500).json(error)
     }
-  })
+  }
+
+  module.exports ={authentication,get,post,deletee,put}
