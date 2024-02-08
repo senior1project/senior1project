@@ -24,15 +24,7 @@ const Navbar = () => {
           </ul>
         ) : (
           <ul>
-            <li>
-              
-              <a
-                className={location.pathname == "/cart" ? "active" : ""}
-                href="/cart"
-              >
-                Cart
-              </a>
-            </li>
+           
           </ul>
         )}
       </div>

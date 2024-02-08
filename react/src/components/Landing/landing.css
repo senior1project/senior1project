@@ -1,5 +1,5 @@
 .container{
-    position: absolute;
+  
     width: 100vw;
     overflow-x: hidden;
 }
@@ -32,16 +32,26 @@
 
 
 .search{
+        display: flex;
     position: absolute;
     right: 150px;
-    top:100px;
-    z-index: 100; 
+    top: 100px;
+    z-index: 100;
     width: 300px;
-    height: 100px;
+    height: 255px;
     border-radius: 30px;
     background-color: rgba(20, 20, 20, 0.8);
     text-align: center;
-    color:#e8e8e8 ;
+    color: #e8e8e8;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.search input {
+    height: 33px;
+    border-radius: 16px;
+    padding: 0 15px;
 }
 
 .wrapper{
