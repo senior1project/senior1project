@@ -1,7 +1,7 @@
 import React from 'react'
 import './landing.css'
 import CarCard from '../CarCard';
-const Landing = () => {
+const Landing = ({ setFilter, filter }) => {
   return (
     <div className="container">
       <img
@@ -15,22 +15,26 @@ const Landing = () => {
       </div>
       <div className="search">
         <h1>Search</h1>
-        <input />
+        <input placeholder='model ........'
+          onChange={(e) => {
+            setFilter({ ...filter, text: e.target.value });
+          }}
+        />
+        <input placeholder='Min price .........'
+          onChange={(e) => {
+            setFilter({ ...filter, min: parseInt(e.target.value) });
+          }}
+        />
+        <input placeholder='Max price .....'
+          onChange={(e) => {
+            setFilter({ ...filter, max: parseInt(e.target.value) });
+          }}
+        />
         <br />
-        <button>Search</button>
-      </div>
-      <div className="wrapper">
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
+        <a href='http://127.0.0.1:5500/#search'>Search</a>
       </div>
     </div>
   );
-}
+};
 
 export default Landing

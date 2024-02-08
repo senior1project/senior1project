@@ -1,14 +1,19 @@
 import React from 'react'
 import "./CarCard.css"
-const CarCard = () => {
-    const r = Math.random()
+const CarCard = ({car}) => {
+  //  model;
+  //  year;
+  //  brand;
+  //  price_day;
+  //  color;
   return (
-    <a href={'/car/'+r}>
+    <a href={'/car/'+car.id}>
     <div className='card'>
-        <img  className="card-image"src={window.location.origin + "/wallpaper.jpg"} alt="" />
+        <img  className="card-image"src={car.image} alt="" />
         <div className="card-text">
-            <div className="title">Lambo</div>
-            <div className="price">980 TND</div>
+            <div className="title">{`${car.brand} ${car.model}`}</div>
+            <div className="price">{`${car.price_day} TND`}</div>
+            <div className="color-carCard" style={{background:car.color}} ></div>
         </div>
     </div></a>
   )

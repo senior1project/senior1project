@@ -30,3 +30,11 @@ object-fit: cover;
    font-size:16px ;
    padding-top: 15px;
 }
+
+
+.color-carCard{
+    height: 30px;
+    width: 30px;
+    
+    border: 3px solid black;
+}
