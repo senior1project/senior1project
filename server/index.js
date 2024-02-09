@@ -1,20 +1,31 @@
 const express = require("express");
-const itemRoutes = require('./routes/item.routes')
-
-
-// const db = require('./database-mysql');
-
-
+const Routes = require('./routes/Routes');
+const db = require('./databse-pg/index');
+const cors = require('cors')
+const { authenticateToken } =require('./middlewear/token')
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 
-
+app.use(cors())
 app.use(express.json());
+app.use('/',Routes);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 
-app.use("/api/items", itemRoutes);
+
+
 
 app.listen(PORT, function () {
   console.log("listening on port 3000!");
 });
+
+
+
+
+
+
+
+
+
+
+
