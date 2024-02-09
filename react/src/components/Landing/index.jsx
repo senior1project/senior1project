@@ -1,9 +1,8 @@
-import React from 'react'
-import './landing.css'
-import CarCard from '../CarCard';
+import React from "react";
+import "./landing.css";
 const Landing = ({ setFilter, filter }) => {
   return (
-    <div className="container">
+    <div className="container-landing">
       <img
         className="landing-img"
         src={window.location.origin + "/wallpaper.jpg"}
@@ -15,26 +14,29 @@ const Landing = ({ setFilter, filter }) => {
       </div>
       <div className="search">
         <h1>Search</h1>
-        <input placeholder='model ........'
+        <input
+          placeholder="model ........"
           onChange={(e) => {
             setFilter({ ...filter, text: e.target.value });
           }}
         />
-        <input placeholder='Min price .........'
+        <input
+          placeholder="Min price ........."
           onChange={(e) => {
             setFilter({ ...filter, min: parseInt(e.target.value) });
           }}
         />
-        <input placeholder='Max price .....'
+        <input
+          placeholder="Max price ....."
           onChange={(e) => {
             setFilter({ ...filter, max: parseInt(e.target.value) });
           }}
         />
         <br />
-        <a href='http://127.0.0.1:5500/#search'>Search</a>
+        <a href="http://127.0.0.1:5500/#search">Search</a>
       </div>
     </div>
   );
 };
 
-export default Landing
+export default Landing;

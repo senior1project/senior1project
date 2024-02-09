@@ -4,6 +4,8 @@ import Landing from "./components/Landing";
 import CarInfo from "./pages/CarInfo";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Admin from "./pages/Admin";
+import Create from "./pages/Admin/Create";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route element={<Home/>} path="/" />
         <Route element={<Contact/>} path="/contact" />
         <Route path="/car/:id" element={<CarInfo/>}/>
+        <Route path="/admin" element={<Admin/>}/>
+        <Route path="/admin/addcar" element={<Create/>}/>
         <Route element={<p>404 Not Found</p>} path="*"/>
       </Routes>
     </BrowserRouter>
