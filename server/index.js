@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express");;
 const Routes = require('./routes/Routes');
 const db = require('./databse-pg/index');
 const cors = require('cors')
